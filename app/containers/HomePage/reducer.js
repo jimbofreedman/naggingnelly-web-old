@@ -9,16 +9,15 @@
  * case YOUR_ACTION_CONSTANT:
  *   return state.set('yourStateVariable', true);
  */
-import { fromJS } from 'immutable';
 
 import {
   CHANGE_USERNAME,
 } from './constants';
 
 // The initial state of the App
-const initialState = fromJS({
+const initialState = {
   username: '',
-});
+};
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {

@@ -3,12 +3,13 @@
  * If we were to do this in store.js, reducers wouldn't be hot reloadable.
  */
 
-import { fromJS } from 'immutable';
-import { combineReducers } from 'redux-immutable';
+import { combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import { reducer as formReducer } from 'redux-form'
 
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
+import rest from './rest';
 
 /*
  * routeReducer
@@ -19,9 +20,9 @@ import languageProviderReducer from 'containers/LanguageProvider/reducer';
  */
 
 // Initial routing state
-const routeInitialState = fromJS({
+const routeInitialState = {
   locationBeforeTransitions: null,
-});
+};
 
 /**
  * Merge route into the global application state
@@ -46,6 +47,8 @@ export default function createReducer(asyncReducers) {
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
+    form: formReducer,
+    ...rest.reducers,
     ...asyncReducers,
   });
 }

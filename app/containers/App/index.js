@@ -8,11 +8,14 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
+import { connect } from 'react-redux';
+import styled from 'styled-components'
+import { createStructuredSelector } from 'reselect';
 
-import Header from 'components/Header';
+import AddAction from 'containers/addAction';
 import Footer from 'components/Footer';
 import withProgressBar from 'components/ProgressBar';
+import rest from '../../rest';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -23,25 +26,36 @@ const AppWrapper = styled.div`
   flex-direction: column;
 `;
 
-export function App(props) {
-  return (
-    <AppWrapper>
-      <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
-        meta={[
-          { name: 'description', content: 'A React.js Boilerplate application' },
-        ]}
-      />
-      <Header />
-      {React.Children.toArray(props.children)}
-      <Footer />
-    </AppWrapper>
-  );
+class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  /**
+   * when initial state username is not null, submit the form to load repos
+   */
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(rest.actions.actions.sync());
+  }
+
+  render() {
+    const { children } = this.props;
+    return (
+      <AppWrapper>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
+        <AddAction />
+        {React.Children.toArray(children)}
+        <Footer />
+      </AppWrapper>
+    );
+  }
 }
 
 App.propTypes = {
   children: React.PropTypes.node,
 };
 
-export default withProgressBar(App);
+export function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(null, mapDispatchToProps)(App);
