@@ -15,12 +15,12 @@ export class Action extends React.PureComponent { // eslint-disable-line react/p
   render() {
     const { dispatch, action } = this.props;
 
-    const handleStatusChange = ((action, status) => {
-      //this.setState({open: false});
-      //this.setState({removing: true});
-      dispatch(rest.actions.actions.complete(action.id));
+    const handleComplete = ((a) => {
+      // this.setState({open: false});
+      // this.setState({removing: true});
+      dispatch(rest.actions.actions.complete(a.id));
       this.forceUpdate();
-    }).bind(this);
+    });
 
 
     const disabled = false;
@@ -28,27 +28,28 @@ export class Action extends React.PureComponent { // eslint-disable-line react/p
     const open = false;
 
     const header = (<div>
-      <Grid style={{paddingLeft: '0px'}}>
+      <Grid style={{ paddingLeft: '0px' }}>
         <Row>
-          <Col xs={11} sm={8} md={8} lg={8} /*onClick={(e) => setOpen(!open)}*/>
-            <div style={{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{action.short_description}</div>
+          <Col xs={11} sm={8} md={8} lg={6} /* onClick={(e) => setOpen(!open)} */>
+            <div style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>{action.short_description}</div>
           </Col>
-          <Col xs={1} sm={4} md={4} lg={4} style={{padding: '0px', marginTop: '-5px', marginBottom: '-5px'}}>
-              <span>
-                <ButtonGroup>
-                  <Button bsSize="small" disabled={disabled} bsStyle="success" onClick={(e) => {handleStatusChange(action, 1)}}><Glyphicon glyph="ok" /></Button>
-                </ButtonGroup>
-              </span>
+          <Col xs={1} sm={4} md={4} lg={6} style={{ padding: '0px', marginTop: '-5px', marginBottom: '-5px' }}>
+            <span>
+              <ButtonGroup>
+                <Button bsSize="small" disabled={disabled} bsStyle="success" onClick={() => { handleComplete(action); }}><Glyphicon glyph="ok" /></Button>
+              </ButtonGroup>
+            </span>
           </Col>
         </Row>
       </Grid>
-    </div>)
+    </div>);
+
     return (
       <div>
-        <Panel collapsible expanded={open} bsStyle={color} disabled={disabled} header={header} style={{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}} />
+        <Panel collapsible expanded={open} bsStyle={color} disabled={disabled} header={header} style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }} />
       </div>
 
-      );
+    );
   }
 }
 
