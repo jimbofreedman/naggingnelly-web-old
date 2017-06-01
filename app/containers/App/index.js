@@ -7,14 +7,11 @@
  */
 
 import React from 'react';
-import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import styled from 'styled-components'
-import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
 
-import AddAction from 'containers/addAction';
+import AddAction from 'containers/AddAction';
 import Footer from 'components/Footer';
-import withProgressBar from 'components/ProgressBar';
 import rest from '../../rest';
 
 const AppWrapper = styled.div`
@@ -39,7 +36,7 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
     const { children } = this.props;
     return (
       <AppWrapper>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
         <AddAction />
         {React.Children.toArray(children)}
         <Footer />
@@ -50,6 +47,7 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
 
 App.propTypes = {
   children: React.PropTypes.node,
+  dispatch: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
