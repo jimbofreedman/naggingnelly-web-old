@@ -28,10 +28,11 @@ export class ActionList extends React.PureComponent { // eslint-disable-line rea
               )
               .map((id) => {
                 const action = actions.data[id];
-                return action.status === 0 ? (
-                  <div key={action.id}>
-                    <Action action={action} />
-                  </div>
+                return action.status === 0 &&
+                  (!action.start_at || action.start_at <= new Date()) ? (
+                    <div key={action.id}>
+                      <Action action={action} />
+                    </div>
                 ) : null;
               })
           }
