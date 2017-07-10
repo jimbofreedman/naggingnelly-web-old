@@ -48,8 +48,8 @@ AddAction.propTypes = {
   data: React.PropTypes.object,
   pristine: React.PropTypes.bool,
   submitting: React.PropTypes.bool,
-  valid: React.PropTypes.valid,
-  reset: React.PropTypes.reset,
+  valid: React.PropTypes.bool,
+  reset: React.PropTypes.bool,
 };
 
 // const mapStateToProps = createStructuredSelector({
