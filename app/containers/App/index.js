@@ -10,6 +10,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import Helmet from 'react-helmet';
 import AddAction from 'containers/AddAction';
 import Footer from 'components/Footer';
 import rest from '../../rest';
@@ -37,6 +38,12 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
     return (
       <AppWrapper>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
+        <Helmet
+          title="NaggingNelly"
+          meta={[
+            { name: 'description', content: 'PA to the Paranoid' },
+          ]}
+        />
         <AddAction />
         {React.Children.toArray(children)}
         <Footer />

@@ -6,13 +6,8 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
-import { Navbar, Form, FormGroup, InputGroup, FormControl, Button, Glyphicon } from 'react-bootstrap';
-import { Field,reduxForm, formValueSelector } from 'redux-form';
-import { FormattedMessage } from 'react-intl';
-import { createStructuredSelector } from 'reselect';
-import makeSelectAddAction from './selectors';
-import messages from './messages';
+import { Form, FormGroup, InputGroup, Button, Glyphicon } from 'react-bootstrap';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import rest from '../../rest';
 
 export class AddAction extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -32,12 +27,6 @@ export class AddAction extends React.PureComponent { // eslint-disable-line reac
 
     return (
       <div>
-        <Helmet
-          title="AddAction"
-          meta={[
-            { name: 'description', content: 'Description of AddAction' },
-          ]}
-        />
         <Form className="form-inline" onSubmit={handleSubmit}>
           <FormGroup>
             <InputGroup>
@@ -57,6 +46,10 @@ export class AddAction extends React.PureComponent { // eslint-disable-line reac
 AddAction.propTypes = {
   dispatch: PropTypes.func.isRequired,
   data: React.PropTypes.object,
+  pristine: React.PropTypes.bool,
+  submitting: React.PropTypes.bool,
+  valid: React.PropTypes.valid,
+  reset: React.PropTypes.reset,
 };
 
 // const mapStateToProps = createStructuredSelector({

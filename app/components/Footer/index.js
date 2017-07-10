@@ -16,12 +16,7 @@ function Footer() {
         <LocaleToggle />
       </section>
       <section>
-        <FormattedMessage
-          {...messages.authorMessage}
-          values={{
-            author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
-          }}
-        />
+        <A href="https://api.naggingnelly.com">Go to API</A>
       </section>
     </Wrapper>
   );
