@@ -6,11 +6,8 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import makeSelectActionList from './selectors';
-import messages from './messages';
 import { selectActions } from '../App/selectors';
 import Action from '../Action';
 
@@ -24,24 +21,28 @@ export class ActionList extends React.PureComponent { // eslint-disable-line rea
       (
         <div>
           <div>
-          {
-            Object.keys(actions.data).map((id) => {
-              const action = actions.data[id];
-              return action.status === 0 ? (
-                <div key={action.id}>
-                  <Action action={action}/>
-                </div>
-              ) : null;
-            })
+            {
+            Object.keys(actions.data)
+              .sort((a, b) =>
+                actions.data[b].priority - actions.data[a].priority
+              )
+              .map((id) => {
+                const action = actions.data[id];
+                return action.status === 0 ? (
+                  <div key={action.id}>
+                    <Action action={action} />
+                  </div>
+                ) : null;
+              })
           }
           </div>
         </div>
-      )
+      );
   }
 }
 
 ActionList.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  // dispatch: PropTypes.func.isRequired,
   actions: PropTypes.object,
 };
 
