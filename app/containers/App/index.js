@@ -32,7 +32,7 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(rest.actions.actions.sync());
-    dispatch(rest.actions.graph.sync());
+    // dispatch(rest.actions.graph.sync());
   }
 
   render() {
