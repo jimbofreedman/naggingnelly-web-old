@@ -16,12 +16,19 @@ export class Action extends React.PureComponent { // eslint-disable-line react/p
     const { dispatch, action } = this.props;
 
     const handleComplete = ((a) => {
-      // this.setState({open: false});
-      // this.setState({removing: true});
       dispatch(rest.actions.actions.complete(a.id));
       this.forceUpdate();
     });
 
+    const handleCancel = ((a) => {
+      dispatch(rest.actions.actions.cancel(a.id));
+      this.forceUpdate();
+    });
+
+    const handleFail = ((a) => {
+      dispatch(rest.actions.actions.fail(a.id));
+      this.forceUpdate();
+    });
 
     const disabled = false;
     const color = undefined;
@@ -36,6 +43,8 @@ export class Action extends React.PureComponent { // eslint-disable-line react/p
           <Col xs={1} sm={4} md={4} lg={6} style={{ padding: '0px', marginTop: '-5px', marginBottom: '-5px' }}>
             <span>
               <ButtonGroup>
+                <Button bsSize="small" disabled={disabled} bsStyle="danger" onClick={() => { handleFail(action); }}><Glyphicon glyph="remove" /></Button>
+                <Button bsSize="small" disabled={disabled} bsStyle="warning" onClick={() => { handleCancel(action); }}><Glyphicon glyph="minus" /></Button>
                 <Button bsSize="small" disabled={disabled} bsStyle="success" onClick={() => { handleComplete(action); }}><Glyphicon glyph="ok" /></Button>
               </ButtonGroup>
             </span>
