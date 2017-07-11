@@ -41,6 +41,7 @@ const makeSelectLocationState = () => {
 };
 
 const selectActions = () => (state) => state.actions;
+const selectGraph = () => (state) => state.graph;
 
 export {
   selectGlobal,
@@ -50,4 +51,5 @@ export {
   makeSelectRepos,
   makeSelectLocationState,
   selectActions,
+  selectGraph,
 };

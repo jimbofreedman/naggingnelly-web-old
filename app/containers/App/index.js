@@ -12,6 +12,7 @@ import styled from 'styled-components';
 
 import Helmet from 'react-helmet';
 import AddAction from 'containers/AddAction';
+import ActionGraph from 'containers/ActionGraph';
 import Footer from 'components/Footer';
 import rest from '../../rest';
 
@@ -31,6 +32,7 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(rest.actions.actions.sync());
+    dispatch(rest.actions.graph.sync());
   }
 
   render() {
@@ -45,7 +47,8 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
           ]}
         />
         <AddAction />
-        {React.Children.toArray(children)}
+        {/*React.Children.toArray(children)*/}
+        <ActionGraph />
         <Footer />
       </AppWrapper>
     );

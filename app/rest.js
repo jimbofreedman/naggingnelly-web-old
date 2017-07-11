@@ -59,6 +59,15 @@ export default reduxApi({
     },
     options,
   },
+  graph: {
+    url: '/gtd/actions/graph_json/',
+    helpers: {
+      complete() {
+        return [{}, {'method': 'get'}]
+      }
+    },
+    options,
+  },
 
 }).use('fetch', adapterFetch(fetchWithCsrfToken))
   .use('rootUrl', config.api.endpoint);
