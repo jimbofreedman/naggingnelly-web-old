@@ -47,8 +47,7 @@ class App extends React.PureComponent { // eslint-disable-line react/prefer-stat
           ]}
         />
         <AddAction />
-        {/*React.Children.toArray(children)*/}
-        <ActionGraph />
+        {React.Children.toArray(children)}
         <Footer />
       </AppWrapper>
     );
