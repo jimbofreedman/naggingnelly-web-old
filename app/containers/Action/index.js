@@ -37,10 +37,10 @@ export class Action extends React.PureComponent { // eslint-disable-line react/p
     const header = (<div>
       <Grid style={{ paddingLeft: '0px' }}>
         <Row>
-          <Col xs={11} sm={8} md={8} lg={6} /* onClick={(e) => setOpen(!open)} */>
+          <Col xs={8} sm={8} md={8} lg={6} /* onClick={(e) => setOpen(!open)} */>
             <div style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>{action.short_description}</div>
           </Col>
-          <Col xs={1} sm={4} md={4} lg={6} style={{ padding: '0px', marginTop: '-5px', marginBottom: '-5px' }}>
+          <Col xs={4} sm={4} md={4} lg={6} style={{ padding: '0px', marginTop: '-5px', marginBottom: '-5px' }}>
             <span>
               <ButtonGroup>
                 <Button bsSize="small" disabled={disabled} bsStyle="danger" onClick={() => { handleFail(action); }}><Glyphicon glyph="remove" /></Button>
