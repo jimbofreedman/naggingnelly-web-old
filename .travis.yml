@@ -1,27 +1,28 @@
 language: node_js
-
 node_js:
-  - 7
-  - 6
-  - 5
-
+- 7
+- 6
+- 5
 script:
-  - node ./internals/scripts/generate-templates-for-linting
-  - npm run test
-  - npm run build
-
+- node ./internals/scripts/generate-templates-for-linting
+- npm run test
+- npm run build
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 notifications:
   email:
     on_failure: change
-
-after_success: 'npm run coveralls'
-
+after_success: npm run coveralls
 cache:
   yarn: true
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: SKolEbNwcAy/1tNpJhlHn6b9c+nR94nJgCERN94kPECGvbdIu/jtbFlVGVleUl46Voh4HgHQSmcMjaiPgCazANhEPPk4VO6INZUj6CdDU/bm7nY7uj3jwWSEw0p+3vtKY8e0c4nDaxvMxnfGf/qzT4IMleeyFTWlJQlOHl3w8IgvPoC2iBDbzkxj95IVGtSSJI1h0vJNa1dY9PfUvYPR/pWhKeRgHjmqJNABZ1W/S3xn2xAfN58RTqlhl3L3hZPiF1oV8j7KW+daayf6+QgT/MHGdwBiAxtIExomWzd9L8tE3dRGfzInOjmxDVZKmx2kEADh3lCeWjU32Jcm4vY0joAKHbfxlY8AR9ZADXPiWUjp5RBFLIWmlry7980SMS2Dv8BqEqvM+53WVgsudYBNCnvBpz3oHfrH5KIAkk11/QgMmK7Co2m/7pQHtOgBE03kvnITvMHU30P6Ow+Yaa0JiuWreAMPvnRp5tVhoBwvBWctFDqmANk+NEmaRPalMX0mK7GuN63U+mF74ouciKDhECOfQYKuR5Q7nl3jcEnxKZJuBOnIADC2mIz8COh5E/6zE1Ogjio80A2bHo7xFkp8vgOQEzd1Bqi2jS5uSoq61dMRaom2cDQpb+GvQVaKmHZnc4ViWGnwT4YToTNefmN0/rX8UzsGi83wG1DvdCX+Bo4=
+  app: naggingnelly-web
+  on:
+    repo: jimbofreedman/naggingnelly-web
