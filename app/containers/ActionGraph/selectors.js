@@ -16,7 +16,7 @@ const selectActionGraphDomain = () => (state) => state.actionGraph;
 
 const makeSelectActionGraph = () => createSelector(
   selectActionGraphDomain(),
-  (substate) => substate //.toJS()
+  (substate) => substate
 );
 
 export default makeSelectActionGraph;

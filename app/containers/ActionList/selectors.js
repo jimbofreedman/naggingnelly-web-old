@@ -15,8 +15,8 @@ const selectActionListDomain = () => (state) => state.actionList;
  */
 
 const makeSelectActionList = () => createSelector(
-  //selectActionListDomain(),
-  (substate) => substate, // .toJS()
+  // selectActionListDomain(),
+  (substate) => substate,
 );
 
 export default makeSelectActionList;

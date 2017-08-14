@@ -28,7 +28,7 @@ function dictionaryTransformer(data, prevData /* , action */) {
   const newData = {};
 
   if (prevData !== undefined) {
-    for (var id in prevData) {
+    for (const id in prevData) {
       newData[id] = prevData[id];
     }
   }
@@ -54,13 +54,13 @@ export default reduxApi({
     reducerName: 'actions',
     helpers: {
       complete(id) {
-        return [ {id, fn: 'complete'}, {'method': 'post'}];
+        return [{ id, fn: 'complete' }, { method: 'post' }];
       },
       cancel(id) {
-        return [ {id, fn: 'cancel'}, {'method': 'post'}];
+        return [{ id, fn: 'cancel' }, { method: 'post' }];
       },
       fail(id) {
-        return [ {id, fn: 'fail'}, {'method': 'post'}];
+        return [{ id, fn: 'fail' }, { method: 'post' }];
       },
     },
     options,
@@ -69,8 +69,8 @@ export default reduxApi({
     url: '/gtd/actions/graph_json/',
     helpers: {
       complete() {
-        return [ {}, {'method': 'get'}];
-      }
+        return [ {}, { method: 'get' }];
+      },
     },
     options,
   },

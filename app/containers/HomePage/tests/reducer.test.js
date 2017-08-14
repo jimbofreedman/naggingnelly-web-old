@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 
 import homeReducer from '../reducer';
 import {
@@ -8,9 +7,9 @@ import {
 describe('homeReducer', () => {
   let state;
   beforeEach(() => {
-    state = fromJS({
+    state = {
       username: '',
-    });
+    };
   });
 
   it('should return the initial state', () => {
