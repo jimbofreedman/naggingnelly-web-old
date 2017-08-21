@@ -12,7 +12,7 @@ import styled from 'styled-components';
 
 import Helmet from 'react-helmet';
 import AddAction from 'containers/AddAction';
-import ActionGraph from 'containers/ActionGraph';
+// import ActionGraph from 'containers/ActionGraph';
 import Footer from 'components/Footer';
 import rest from '../../rest';
 

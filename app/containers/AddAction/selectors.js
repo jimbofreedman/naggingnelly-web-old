@@ -16,7 +16,7 @@ const selectAddActionDomain = () => (state) => state.get('addAction');
 
 const makeSelectAddAction = () => createSelector(
   selectAddActionDomain(),
-  (substate) => substate //.toJS()
+  (substate) => substate
 );
 
 export default makeSelectAddAction;

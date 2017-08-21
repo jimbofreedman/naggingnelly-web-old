@@ -28,14 +28,16 @@ function dictionaryTransformer(data, prevData /* , action */) {
   const newData = {};
 
   if (prevData !== undefined) {
-    for (var id in prevData) {
-      newData[id] = prevData[id];
-    }
+    Object.keys(prevData).forEach((id) => {
+      if (Object.prototype.hasOwnProperty.call(prevData, id)) {
+        newData[id] = prevData[id];
+      }
+    });
   }
 
   if (data !== undefined) {
     if (data.constructor === Array) {
-      data.map((item) => {
+      data.forEach((item) => {
         newData[item.id] = item;
       });
     } else {
@@ -54,13 +56,13 @@ export default reduxApi({
     reducerName: 'actions',
     helpers: {
       complete(id) {
-        return [ {id, fn: 'complete'}, {'method': 'post'}];
+        return [{ id, fn: 'complete' }, { method: 'post' }];
       },
       cancel(id) {
-        return [ {id, fn: 'cancel'}, {'method': 'post'}];
+        return [{ id, fn: 'cancel' }, { method: 'post' }];
       },
       fail(id) {
-        return [ {id, fn: 'fail'}, {'method': 'post'}];
+        return [{ id, fn: 'fail' }, { method: 'post' }];
       },
     },
     options,
@@ -69,8 +71,8 @@ export default reduxApi({
     url: '/gtd/actions/graph_json/',
     helpers: {
       complete() {
-        return [ {}, {'method': 'get'}];
-      }
+        return [{}, { method: 'get' }];
+      },
     },
     options,
   },

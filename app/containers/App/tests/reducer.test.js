@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 
 import appReducer from '../reducer';
 import {
@@ -10,14 +9,14 @@ import {
 describe('appReducer', () => {
   let state;
   beforeEach(() => {
-    state = fromJS({
+    state = {
       loading: false,
       error: false,
       currentUser: false,
-      userData: fromJS({
+      userData: {
         repositories: false,
-      }),
-    });
+      },
+    };
   });
 
   it('should return the initial state', () => {
