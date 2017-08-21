@@ -28,14 +28,16 @@ function dictionaryTransformer(data, prevData /* , action */) {
   const newData = {};
 
   if (prevData !== undefined) {
-    for (const id in prevData) {
-      newData[id] = prevData[id];
-    }
+    Object.keys(prevData).forEach((id) => {
+      if (Object.prototype.hasOwnProperty.call(prevData, id)) {
+        newData[id] = prevData[id];
+      }
+    });
   }
 
   if (data !== undefined) {
     if (data.constructor === Array) {
-      data.map((item) => {
+      data.forEach((item) => {
         newData[item.id] = item;
       });
     } else {
@@ -69,7 +71,7 @@ export default reduxApi({
     url: '/gtd/actions/graph_json/',
     helpers: {
       complete() {
-        return [ {}, { method: 'get' }];
+        return [{}, { method: 'get' }];
       },
     },
     options,
