@@ -6,7 +6,7 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Panel, Grid, Row, Col, ButtonGroup, Button, Glyphicon } from 'react-bootstrap';
+import { Panel, Grid, Row, Col, ButtonGroup, Button, Glyphicon, Label } from 'react-bootstrap';
 import { createStructuredSelector } from 'reselect';
 import makeSelectAction from './selectors';
 import rest from '../../rest';
@@ -39,6 +39,7 @@ export class Action extends React.PureComponent { // eslint-disable-line react/p
         <Row>
           <Col xs={8} sm={8} md={8} lg={6} /* onClick={(e) => setOpen(!open)} */>
             <div style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>{action.short_description}</div>
+            <Label>{action.due_at}</Label>
           </Col>
           <Col xs={4} sm={4} md={4} lg={6} style={{ padding: '0px', marginTop: '-5px', marginBottom: '-5px' }}>
             <span>
