@@ -191,10 +191,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 98,
-        "branches": 91,
-        "functions": 98,
-        "lines": 98
+        "statements": 94,
+        "branches": 85,
+        "functions": 94,
+        "lines": 94
       }
     },
     "moduleDirectories": [
@@ -230,11 +230,14 @@
     "react-router-redux": "4.0.6",
     "react-router-scroll": "0.4.1",
     "redux": "3.6.0",
+    "redux-api-immutable": "^0.9.24",
     "redux-immutable": "3.0.8",
     "redux-saga": "0.14.0",
+    "redux-thunk": "^2.2.0",
     "reselect": "2.5.4",
     "sanitize.css": "4.1.0",
     "styled-components": "1.1.2",
+    "universal-cookie": "^2.0.8",
     "warning": "3.0.0",
     "whatwg-fetch": "2.0.1"
   },
@@ -283,6 +286,7 @@
     "plop": "1.7.3",
     "pre-commit": "1.1.3",
     "react-addons-test-utils": "15.4.1",
+    "redux-mock-store": "^1.2.3",
     "rimraf": "2.5.4",
     "shelljs": "0.7.5",
     "sinon": "2.0.0-pre",
