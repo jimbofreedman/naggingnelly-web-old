@@ -48,10 +48,10 @@ describe('asyncInjectors', () => {
       injectReducer('test', reducer);
       injectSagas(sagas);
 
-      const actual = store.getState().get('test');
-      const expected = initialState.merge({ reduced: 'yup' });
+      const actual = store.getState().test;
+      const expected = Object.assign({}, initialState, { reduced: 'yup' });
 
-      expect(actual.toJS()).toEqual(expected.toJS());
+      expect(actual).toEqual(expected);
     });
 
     it('should throw if passed invalid store shape', () => {
@@ -80,10 +80,10 @@ describe('asyncInjectors', () => {
 
         injectReducer('test', reducer);
 
-        const actual = store.getState().get('test');
+        const actual = store.getState().test;
         const expected = initialState;
 
-        expect(actual.toJS()).toEqual(expected.toJS());
+        expect(actual).toEqual(expected);
       });
 
       it('should not assign reducer if already existing', () => {
@@ -142,10 +142,10 @@ describe('asyncInjectors', () => {
 
         injectSagas(sagas);
 
-        const actual = store.getState().get('test');
-        const expected = initialState.merge({ reduced: 'yup' });
+        const actual = store.getState().test;
+        const expected = Object.assign({}, initialState, { reduced: 'yup' });
 
-        expect(actual.toJS()).toEqual(expected.toJS());
+        expect(actual).toEqual(expected);
       });
 
       it('should throw if passed invalid saga', () => {

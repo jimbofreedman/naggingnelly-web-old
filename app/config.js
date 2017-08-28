@@ -4,6 +4,11 @@ const config = {
       endpoint: 'http://localhost:8000/',
     },
   },
+  test: {
+    api: {
+      endpoint: 'http://localhost:8000/',
+    },
+  },
   production: {
     api: {
       endpoint: 'https://api.naggingnelly.com/',
