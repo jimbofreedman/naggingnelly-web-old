@@ -39,7 +39,7 @@ export class ActionList extends React.PureComponent { // eslint-disable-line rea
           filteredAndSorted.map((act) => {
             const action = act.toJS();
             return (<div key={action.id}>
-              <Action key={action.id} action={action} dispatch={dispatch} />
+              <Action action={action} dispatch={dispatch} />
             </div>);
           })
         }

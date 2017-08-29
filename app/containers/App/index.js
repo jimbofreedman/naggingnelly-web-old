@@ -9,6 +9,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import AddAction from 'components/AddAction';
 import Header from 'components/Header';
 import withProgressBar from 'components/ProgressBar';
 
@@ -26,6 +27,7 @@ export function App(props) {
     <AppWrapper>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
       <Header />
+      <AddAction />
       {React.Children.toArray(props.children)}
     </AppWrapper>
   );

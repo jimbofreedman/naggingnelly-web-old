@@ -191,10 +191,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 94,
-        "branches": 85,
-        "functions": 94,
-        "lines": 94
+        "statements": 70,
+        "branches": 60,
+        "functions": 70,
+        "lines": 70
       }
     },
     "moduleDirectories": [
@@ -233,6 +233,7 @@
     "redux": "3.6.0",
     "redux-api-immutable": "^0.9.24",
     "redux-api-immutablejs": "^0.9.19",
+    "redux-form": "^7.0.3",
     "redux-immutable": "3.0.8",
     "redux-saga": "0.14.0",
     "redux-thunk": "^2.2.0",
