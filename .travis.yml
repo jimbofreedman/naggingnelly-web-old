@@ -1,27 +1,24 @@
 language: node_js
-
 node_js:
-  - 7
-  - 6
-  - 5
-
+- 7
+- 6
+- 5
 script:
-  - node ./internals/scripts/generate-templates-for-linting
-  - npm run test
-  - npm run build
-
+- node ./internals/scripts/generate-templates-for-linting
+- npm run test
+- npm run build
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 notifications:
   email:
     on_failure: change
-
-after_success: 'npm run coveralls'
-
+after_success: npm run coveralls
 cache:
   yarn: true
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  api_key:
+    secure: XtnE4DbP7/UVlj/NgEnqKeQ7XdX0lYQ4bjychtJh1agoQBnPnKsAhjc+YILWCiyfZgznyhtqKXkycBHCHf9sj8t4/8jdGBIvjGaDtW1Ny5Qi8TNx+/hh67q/mlM3iDZiloekOxGoycGNcHY7wLBLY38+Zt49nhKonoy4eIPJr+tLfoQYGL+ZhNBLCnfHlC69gfDnYpm3sGVjwwJnXUtGhK4+rP1SgleyFZyXIfbcM+rfqTPHLV0thv1iOf9imWRLqeHCr78PRm7BGadJJQIMjBCsqML9vJcYmYjlm85OiiYClSqLkiGmXNMQ313USYwW9aUiJe3agz2ZFe7YtunAgLY24uyHu9hUllt3UyTc4mwI1YjBR6IjYwlZpJ4cHtJ3hChuc6YG8Vvna+8aqgF93gE6GKzDlkj3J2e520W5qjebWOlZTSDsftkVjwIdvd/HcGSHowPZ8/Nyva++EgMvC72evoleMC+IPzJEKdXNsIHqp7LcZFKuOrbvo65TCzxluYjn98M+4P4Z4Mh+0wSx9H7IJW60oXwS57e6Zrmf1rox6N9X8pWqcqgFCxgzxTVxVG8DyLoZgwOYRCFegZuAuK879pp+aYlWi6wCEELluAIUVxkRTDlG6nVLIHRew+QSAhCAbipNip3k3E+/hHRzq2NQ+CEPIENnJcY6jZeKxAQ=
