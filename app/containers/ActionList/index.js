@@ -29,9 +29,8 @@ export class ActionList extends React.PureComponent { // eslint-disable-line rea
       (!action.get('dependencies') ||
         !action.get('dependencies').filter((a) => actions.getIn(['data', a, 'status'])).length)
       )
-      .sort((a, b) =>
-        actions.getIn(['data', b, 'priority']) - actions.getIn(['data', a, 'priority'])
-      ).toList();
+      .sort((a, b) => b.get('priority') - a.get('priority'))
+      .toList();
 
     return (
       <div>
