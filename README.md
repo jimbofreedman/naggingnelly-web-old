@@ -1,20 +1,20 @@
 
 <div align="center">
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/jimbo-freedman/naggingnelly-web">
-    <img src="https://david-dm.org/jimbo-freedman/naggingnelly-web.svg" alt="Dependency Status" />
+  <a href="https://david-dm.org/jimbofreedman/naggingnelly-web">
+    <img src="https://david-dm.org/jimbofreedman/naggingnelly-web.svg" alt="Dependency Status" />
   </a>
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/jimbo-freedman/naggingnelly-web#info=devDependencies">
-    <img src="https://david-dm.org/jimbo-freedman/naggingnelly-web/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/jimbofreedman/naggingnelly-web#info=devDependencies">
+    <img src="https://david-dm.org/jimbofreedman/naggingnelly-web/dev-status.svg" alt="devDependency Status" />
   </a>
   <!-- Build Status -->
-  <a href="https://travis-ci.org/jimbo-freedman/naggingnelly-web">
-    <img src="https://travis-ci.org/jimbo-freedman/naggingnelly-web.svg" alt="Build Status" />
+  <a href="https://travis-ci.org/jimbofreedman/naggingnelly-web">
+    <img src="https://travis-ci.org/jimbofreedman/naggingnelly-web.svg" alt="Build Status" />
   </a>
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/jimbo-freedman/naggingnelly-web">
-    <img src="https://coveralls.io/repos/github/jimbo-freedman/naggingnelly-web/badge.svg" alt="Test Coverage" />
+  <a href="https://coveralls.io/r/jimbofreedman/naggingnelly-web">
+    <img src="https://coveralls.io/repos/github/jimbofreedman/naggingnelly-web/badge.svg" alt="Test Coverage" />
   </a>
 </div>
 
