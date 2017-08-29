@@ -2,7 +2,9 @@
  * Test rest addons
  */
 
+import { fromJS } from 'immutable';
 import configureMockStore from 'redux-mock-store';
+import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import rest, { stripDoubleSlashes, dictionaryTransformer } from '../rest';
 
@@ -41,23 +43,33 @@ describe('rest', () => {
   describe('actions', () => {
     describe('helpers', () => {
       const id = 1;
+      fetchMock.post('*', { hello: 'world' });
 
       it('complete should return fn', () => {
-        const store = mockStore({});
-        store.dispatch(rest.actions.actions.complete(id));
-        expect(store.getActions()[0].request.pathvars).toEqual({ fn: 'complete', id });
+        const store = mockStore(fromJS({}));
+        const action = rest.actions.actions.complete(id);
+        return store.dispatch(action).then(() => {
+          const actions = store.getActions();
+          expect(actions[0].request.pathvars).toEqual({ fn: 'complete', id: 1 });
+        });
       });
 
       it('cancel should return fn', () => {
-        const store = mockStore({});
-        store.dispatch(rest.actions.actions.cancel(id));
-        expect(store.getActions()[0].request.pathvars).toEqual({ fn: 'cancel', id });
+        const store = mockStore(fromJS({}));
+        const action = rest.actions.actions.cancel(id);
+        return store.dispatch(action).then(() => {
+          const actions = store.getActions();
+          expect(actions[0].request.pathvars).toEqual({ fn: 'cancel', id: 1 });
+        });
       });
 
       it('fail should return fn', () => {
-        const store = mockStore({});
-        store.dispatch(rest.actions.actions.fail(id));
-        expect(store.getActions()[0].request.pathvars).toEqual({ fn: 'fail', id });
+        const store = mockStore(fromJS({}));
+        const action = rest.actions.actions.fail(id);
+        return store.dispatch(action).then(() => {
+          const actions = store.getActions();
+          expect(actions[0].request.pathvars).toEqual({ fn: 'fail', id: 1 });
+        });
       });
     });
   });

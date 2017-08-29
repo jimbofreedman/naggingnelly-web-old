@@ -19,6 +19,24 @@ export default function createRoutes(store) {
   return [
     {
       path: '/',
+      name: 'actions',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/ActionList/reducer'),
+          import('containers/ActionList'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, component]) => {
+          injectReducer('actionList', reducer.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/home',
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
@@ -45,24 +63,6 @@ export default function createRoutes(store) {
         import('containers/FeaturePage')
           .then(loadModule(cb))
           .catch(errorLoading);
-      },
-    }, {
-      path: '/actions',
-      name: 'actions',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          import('containers/ActionList/reducer'),
-          import('containers/ActionList'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, component]) => {
-          injectReducer('actionList', reducer.default);
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
       },
     }, {
       path: '*',

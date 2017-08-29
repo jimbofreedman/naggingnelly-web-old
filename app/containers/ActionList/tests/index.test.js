@@ -1,15 +1,35 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
+import { fromJS } from 'immutable';
 
 import { ActionList, mapDispatchToProps } from '../index';
+// import { Action } from '../../../components/Action';
 import rest from '../../../rest';
 
 describe('<ActionList />', () => {
-  it('should render a blank object', () => {
+  rest.actions.actions.sync = jest.fn();
+
+  it('should render a loading notification', () => {
     const renderedComponent = shallow(
       <ActionList />
     );
-    expect(renderedComponent.contains(<div></div>)).toEqual(true);
+    expect(renderedComponent.contains(<div>Loading</div>)).toEqual(true);
+  });
+
+  it('should render a list of actions', () => {
+    const renderedComponent = shallow(
+      <ActionList
+        actions={fromJS({
+          sync: true,
+          data: {
+            1: { status: 0 },
+            2: { status: 0 },
+            3: { status: 1 },
+          },
+        })}
+      />
+    );
+    expect(renderedComponent.children().length).toBe(2);
   });
 
   describe('componentDidMount', () => {

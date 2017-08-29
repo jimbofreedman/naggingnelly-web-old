@@ -1,5 +1,5 @@
-import reduxApi from 'redux-api-immutable';
-import adapterFetch from 'redux-api-immutable/lib/adapters/fetch';
+import reduxApi from 'redux-api-immutablejs';
+import adapterFetch from 'redux-api-immutablejs/lib/adapters/fetch';
 import Cookies from 'universal-cookie';
 import config from 'config';
 
