@@ -124,6 +124,10 @@ if (!window.Intl) {
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed
-if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install(); // eslint-disable-line global-require
-}
+
+// disabled because of:
+// https://github.com/react-boilerplate/react-boilerplate/blob/8407cf05c4f1d43ca6c78625b7b8fee7627fdedb/docs/general/faq.md#issue-with-local-caching-when-running-in-production-mode-f5--ctrlf5--cmdr-weird-behavior
+
+// if (process.env.NODE_ENV === 'production') {
+//   require('offline-plugin/runtime').install(); // eslint-disable-line global-require
+// }
