@@ -11,6 +11,7 @@ import styled from 'styled-components';
 
 import AddAction from 'components/AddAction';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import withProgressBar from 'components/ProgressBar';
 
 const AppWrapper = styled.div`
@@ -29,6 +30,7 @@ export function App(props) {
       <Header />
       <AddAction />
       {React.Children.toArray(props.children)}
+      <Footer />
     </AppWrapper>
   );
 }
