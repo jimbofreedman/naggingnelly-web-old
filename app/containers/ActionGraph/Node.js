@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+// ^ to allow for reading GraphViz's SVG objects
 import React from 'react';
 
 function Node({ node }) {
@@ -19,5 +21,9 @@ function Node({ node }) {
     >{node.label}</text>
   </g>);
 }
+
+Node.propTypes = {
+  node: React.PropTypes.object,
+};
 
 export default Node;

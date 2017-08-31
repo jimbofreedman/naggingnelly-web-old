@@ -31,8 +31,8 @@ export class ActionGraph extends React.PureComponent { // eslint-disable-line re
     // const drawC = g._draw_[1];
     const drawP = g._draw_[2];
     const points = drawP.points;
-    const width = points[2][0];
-    const height = points[2][1];
+    const width = points[2][0] + 16;
+    const height = points[2][1] + 16;
     const viewBox = `0.00 0.00 ${width} ${height}`;
     const transform = `scale(1 1) rotate(0) translate(${(points[0][0] + 4).toString()} ${(points[2][1] + 4).toString()})`;
 
@@ -42,11 +42,13 @@ export class ActionGraph extends React.PureComponent { // eslint-disable-line re
       ${(points[2][0] - 4).toString()},${(-points[2][1] + 4).toString()} 
       ${(points[3][0] - 4).toString()},${(-points[3][1] + 4).toString()}`;
     return (
-      <div style={{
-        width: '100%',
-        height: '100%',
-        overflow: 'scroll',
-      }}>
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          overflow: 'scroll',
+        }}
+      >
         <svg
           width={width} height={height}
           viewBox={viewBox} xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +79,6 @@ function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     loadGraph: () => {
-      console.log(rest);
       dispatch(rest.actions.graph.sync());
     },
   };
