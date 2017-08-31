@@ -40,9 +40,9 @@ export default function createRoutes(store) {
       name: 'graph',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-        import('containers/ActionGraph/reducer'),
-        import('containers/ActionGraph'),
-      ]);
+          import('containers/ActionGraph/reducer'),
+          import('containers/ActionGraph'),
+        ]);
 
         const renderRoute = loadModule(cb);
 
