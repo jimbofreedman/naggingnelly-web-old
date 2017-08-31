@@ -4,7 +4,7 @@ import config from '../../config';
 function Footer() {
   return (
     <div>
-      <a href={config.endpoint} >API</a>
+      <a href={config.api.endpoint} >API</a>
     </div>
   );
 }
