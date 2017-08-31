@@ -36,6 +36,24 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/graph',
+      name: 'graph',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+        import('containers/ActionGraph/reducer'),
+        import('containers/ActionGraph'),
+      ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, component]) => {
+          injectReducer('graph', reducer.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '/home',
       name: 'home',
       getComponent(nextState, cb) {
