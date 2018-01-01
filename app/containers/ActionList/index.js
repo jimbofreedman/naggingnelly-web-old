@@ -63,6 +63,9 @@ export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     loadActions: () => {
+      dispatch(rest.actions.gtdUsers.sync());
+      dispatch(rest.actions.folders.sync());
+      dispatch(rest.actions.contexts.sync());
       dispatch(rest.actions.actions.sync());
     },
   };
